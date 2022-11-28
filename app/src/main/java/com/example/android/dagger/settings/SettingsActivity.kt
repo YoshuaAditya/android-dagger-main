@@ -31,12 +31,14 @@ class SettingsActivity : AppCompatActivity() {
     lateinit var settingsViewModel: SettingsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as MyApplication).appComponent.inject(this)
+        val userManager = (application as MyApplication).appComponent.userManager()
+        userManager.userComponent!!.inject(this)
+
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        val userManager = (application as MyApplication).userManager
+        //val userManager = (application as MyApplication).userManager
 
         //settingsViewModel = SettingsViewModel(userManager.userDataRepository!!, userManager)
         setupViews()

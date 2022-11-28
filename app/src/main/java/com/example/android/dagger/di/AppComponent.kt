@@ -8,6 +8,8 @@ import com.example.android.dagger.registration.RegistrationComponent
 import com.example.android.dagger.registration.enterdetails.EnterDetailsFragment
 import com.example.android.dagger.registration.termsandconditions.TermsAndConditionsFragment
 import com.example.android.dagger.settings.SettingsActivity
+import com.example.android.dagger.user.UserComponent
+import com.example.android.dagger.user.UserManager
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -23,12 +25,14 @@ interface AppComponent {
         fun create(@BindsInstance context: Context): AppComponent
     }
 
-    fun inject(activity: MainActivity)
+    //fun inject(activity: MainActivity)
     // Expose RegistrationComponent factory from the graph
     fun registrationComponent(): RegistrationComponent.Factory
     fun loginComponent(): LoginComponent.Factory
+    fun userManager(): UserManager
 
-    fun inject(activity: SettingsActivity)
+
+    //fun inject(activity: SettingsActivity)
 
     //fun inject(activity: RegistrationActivity)
     //fun inject(fragment: EnterDetailsFragment)
