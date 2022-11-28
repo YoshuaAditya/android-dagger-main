@@ -5,8 +5,10 @@ import com.example.android.dagger.main.MainActivity
 import com.example.android.dagger.registration.RegistrationActivity
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
-// Definition of a Dagger component
+//To make only one instance so both MainActivity and Registration can refer to the same UserManager
+@Singleton
 @Component(modules = [StorageModule::class])
 interface AppComponent {
     // Factory to create instances of the AppComponent
