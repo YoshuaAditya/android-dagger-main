@@ -31,14 +31,21 @@ class RegistrationActivity : AppCompatActivity() {
     @Inject
     lateinit var registrationViewModel: RegistrationViewModel
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Ask Dagger to inject our dependencies
+        //When using Activities, inject Dagger in the Activity's onCreate method before calling super.onCreate to avoid issues with fragment restoration.
+        (application as MyApplication).appComponent.inject(this)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+
+        // REMOVE THIS LINE
+        //registrationViewModel = RegistrationViewModel((application as MyApplication).userManager)
 
         supportFragmentManager.beginTransaction()
             .add(R.id.fragment_holder, EnterDetailsFragment())
             .commit()
+
     }
 
     /**
