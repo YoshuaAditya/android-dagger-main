@@ -65,10 +65,15 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-core:4.9.0'
     testImplementation 'android.arch.core:core-testing:1.1.1'
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
+    androidTestImplementation project(path: ':app')
 
     def dagger_version = "2.40"
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
 
     def androidx_test_version = "1.4.0"
     androidTestImplementation "androidx.test:runner:$androidx_test_version"
