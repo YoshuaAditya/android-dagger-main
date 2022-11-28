@@ -49,21 +49,11 @@ class MainActivity : AppCompatActivity() {
 
         //val userManager = (application as MyApplication).userManagert
         val userManager = (application as MyApplication).appComponent.userManager()
-        if (!userManager.isUserLoggedIn()) {//this is dangerous, will be fixed later
-            if (!userManager.isUserRegistered()) {
-                startActivity(Intent(this, RegistrationActivity::class.java))
-                finish()
-            } else {
-                startActivity(Intent(this, LoginActivity::class.java))
-                finish()
-            }
-        } else {
-            setContentView(R.layout.activity_main)
-            // 3) If the MainActivity needs to be displayed, we get the UserComponent
-            // from the application graph and gets this Activity injected
-            userManager.userComponent!!.inject(this)
-            setupViews()
-        }
+        setContentView(R.layout.activity_main)
+        // 3) If the MainActivity needs to be displayed, we get the UserComponent
+        // from the application graph and gets this Activity injected
+        userManager.userComponent!!.inject(this)
+        setupViews()
     }
 
     /**

@@ -5,7 +5,6 @@ import dagger.Subcomponent
 
 // Classes annotated with @ActivityScope will have a unique instance in this Component
 @ActivityScope
-// Definition of a Dagger subcomponent
 @Subcomponent
 interface LoginComponent {
 

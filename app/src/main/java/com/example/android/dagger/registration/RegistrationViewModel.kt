@@ -25,6 +25,8 @@ import javax.inject.Inject
  * and fragments) uses to keep user's input data.
  */
 
+//We created a subcomponent because we needed to share the same instance of RegistrationViewModel between the Activity and Fragments.
+//As we did before, if we annotate the Component and classes with the same scope annotation, that'll make that typehave a unique instance in the Component.
 @ActivityScope
 class RegistrationViewModel @Inject constructor(val userManager: UserManager) {
 
